@@ -1,10 +1,13 @@
 <template>
     <div>
-        <h1>{{blog_title}}</h1>
-        <i>{{likes}}</i>
-        <img :src="blog_image_url" alt="">
-        <p>{{blog_content}}</p>
-        <button @click="like_blog">Like</button>
+        <button @click="display_post">Show Post</button>
+        <article v-if="show_post === true">
+            <h1>{{blog_title}}</h1>
+            <i>{{likes}}</i>
+            <img :src="blog_image_url" alt="">
+            <p>{{blog_content}}</p>
+            <button @click="like_blog">Like</button>
+        </article>
     </div>
 </template>
 
@@ -17,7 +20,8 @@
                 God help us, we're in the hands of engineers. God help us, we're in the hands of engineers. Forget the fat lady! You're obsessed with the fat lady! Drive us out of here! My dad once told me, laugh and the world laughs with you, Cry, and I'll give you something to cry about you little bastard!`,
                 blog_title: `My Blog Post`,
                 blog_image_url: `https://images.unsplash.com/photo-1474552226712-ac0f0961a954?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3542&q=80`,
-                likes: 0
+                likes: 0,
+                show_post: true
             }
         },
         methods: 
@@ -25,6 +29,17 @@
             like_blog: function()
             {
                 this.likes++;
+            },
+            display_post: function()
+            {
+                if(this.show_post === true)
+                {
+                    this.show_post = false;
+                }
+                else
+                {
+                    this.show_post = true;
+                }
             }
         }    
     }
