@@ -6,7 +6,8 @@
 
 <script>
     export default {
-        data() {
+        data() 
+        {
             return {
                 tweets: [
                             "Just had the best sushi ever!",
@@ -21,8 +22,9 @@
                 num_friends: 10,
                 logged_in: true
                     }
-            },
-        methods: {
+        },
+        methods: 
+        {
             show_info() 
             {
                 document.querySelector(`section`).insertAdjacentHTML(`afterbegin`, `<p>Number of Friends:${this.num_friends}</p>`);
@@ -32,8 +34,6 @@
                     document.querySelector(`section`).insertAdjacentHTML(`afterbegin`, `<p>${this.tweets[i]}</p>`);
                 }
             },
-
-
         },
         mounted: function()
         {
