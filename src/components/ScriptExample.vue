@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <section>
 
-    </div>
+    </section>
 </template>
 
 <script>
@@ -22,6 +22,23 @@
                 logged_in: true
                     }
             },
+        methods: {
+            show_info() 
+            {
+                document.querySelector(`section`).insertAdjacentHTML(`afterbegin`, `<p>Number of Friends:${this.num_friends}</p>`);
+                document.querySelector(`section`).insertAdjacentHTML(`afterbegin`, `<p>Is User Logged In:${this.logged_in}</p>`);
+                for(let i = 0; i < this.tweets.length; i++)
+                {
+                    document.querySelector(`section`).insertAdjacentHTML(`afterbegin`, `<p>${this.tweets[i]}</p>`);
+                }
+            },
+
+
+        },
+        mounted: function()
+        {
+            this.show_info();
+        }
         }
 </script>
 
